@@ -9,15 +9,15 @@ const PORT = 3000;
 let alunos = [
     {
         id: 1,
-        nome: "Isa",
-        email: "isa@email.com",
-        turma: "TSD2026"
+        nome: "Rafael",
+        email: "rafaelpsbpinhal@gmail.com",
+        turma: "TDS2026"
     },
     {
         id: 2,
         nome: "Manu",
         email: "Manu@email.com",
-        turma: "TSD2026"
+        turma: "TDS2026"
     }
 ];
 
@@ -39,6 +39,7 @@ app.get("/alunos/:id", (req, res) => {
             mensagem: "Aluno não encontrado."
         });
     }
+    res.status(200).json(aluno);
 })
 
 // POST - Cadastrar aluno
@@ -109,3 +110,8 @@ app.delete("/alunos/:id", (req, res) => {
     alunos = alunos.filter(a => a.id !== id);
     res.status(204).send();
 })
+
+// Iniciar servidor
+app.listen(PORT, () => {
+    console.log(`API executando em http://localhost:${PORT}`);
+});
